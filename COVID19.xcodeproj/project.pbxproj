@@ -14,6 +14,7 @@
 		ECCE61972A10056800CE4BE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCE61952A10056800CE4BE6 /* Main.storyboard */; };
 		ECCE61992A10056800CE4BE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECCE61982A10056800CE4BE6 /* Assets.xcassets */; };
 		ECCE619C2A10056800CE4BE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECCE619A2A10056800CE4BE6 /* LaunchScreen.storyboard */; };
+		ECCE61A42A1008AC00CE4BE6 /* CovidDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE61A32A1008AC00CE4BE6 /* CovidDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		ECCE61982A10056800CE4BE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECCE619B2A10056800CE4BE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECCE619D2A10056800CE4BE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECCE61A32A1008AC00CE4BE6 /* CovidDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				ECCE61982A10056800CE4BE6 /* Assets.xcassets */,
 				ECCE619A2A10056800CE4BE6 /* LaunchScreen.storyboard */,
 				ECCE619D2A10056800CE4BE6 /* Info.plist */,
+				ECCE61A32A1008AC00CE4BE6 /* CovidDetailViewController.swift */,
 			);
 			path = COVID19;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECCE61942A10056800CE4BE6 /* ViewController.swift in Sources */,
+				ECCE61A42A1008AC00CE4BE6 /* CovidDetailViewController.swift in Sources */,
 				ECCE61902A10056800CE4BE6 /* AppDelegate.swift in Sources */,
 				ECCE61922A10056800CE4BE6 /* SceneDelegate.swift in Sources */,
 			);
