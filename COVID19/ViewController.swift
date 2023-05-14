@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import Alamofire
 import Charts // 파이차트 사용을 위해 import추가
 
 class ViewController: UIViewController {
@@ -18,6 +20,45 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fetchCovidOverview { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(result):
+                debugPrint("success \(result)")
+                
+            case let .failure(error):
+                debugPrint("error \(error)")
+            }
+        }
+        
+    }
+    
+    // 요청이 성공하면 CityCovidOverview를 전달받고 실패면 Error 객체를 전달받도록 한다. 반환값은 없다.
+    func fetchCovidOverview(
+        completionHandler: @escaping (Result<CityCovidOverview, Error>) -> Void
+    ) {
+        let url = "https://api.corona-19.kr/korea/country/new/"
+        let param = [
+            "serviceKey": "Dw9o3VPN6CrqIAe7FK4HkMgtc1JQGSLUO"
+        ]
+        
+        AF.request(url, method: .get, parameters: param)
+            .responseData { response in
+                switch response.result {
+                case let .success(data):
+                    do {
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(CityCovidOverview.self, from: data)
+                        completionHandler(.success(result))
+                    } catch {
+                        completionHandler(.failure(error))
+                    }
+                    
+                case let .failure(error):
+                    completionHandler(.failure(error))
+                }
+                
+            }
         
     }
     
