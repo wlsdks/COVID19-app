@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DBm-2U-9gU">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DBm-2U-9gU">
                                 <rect key="frame" x="24" y="127.00000000000001" width="345" height="60.666666666666671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="65b-dw-Mdq">
@@ -56,10 +56,13 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-ct-5rx" customClass="PieChartView" customModule="Charts">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-ct-5rx" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="24" y="211.66666666666669" width="345" height="582.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="407-92-7fZ">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -70,11 +73,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DBm-2U-9gU" secondAttribute="trailing" constant="24" id="HUQ-Zc-Xwy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xD1-ct-5rx" secondAttribute="bottom" constant="24" id="KH1-nN-0RP"/>
                             <constraint firstItem="DBm-2U-9gU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="OMk-BW-gut"/>
+                            <constraint firstItem="407-92-7fZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="P04-IX-Ln5"/>
+                            <constraint firstItem="407-92-7fZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mFG-Az-S7a"/>
                             <constraint firstItem="xD1-ct-5rx" firstAttribute="top" secondItem="DBm-2U-9gU" secondAttribute="bottom" constant="24" id="rdK-OU-zCD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nxu-Ok-TiU"/>
                     <connections>
+                        <outlet property="indicatorView" destination="407-92-7fZ" id="zwz-8w-CjI"/>
+                        <outlet property="labelStackView" destination="DBm-2U-9gU" id="bGP-q9-no8"/>
                         <outlet property="newCaseLabel" destination="CT6-Ev-EGP" id="g3w-O7-jCv"/>
                         <outlet property="pieChartView" destination="xD1-ct-5rx" id="SSY-pq-LBa"/>
                         <outlet property="totalCaseLabel" destination="rG6-Do-hOZ" id="adi-zG-zz7"/>

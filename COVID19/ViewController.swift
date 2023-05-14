@@ -16,12 +16,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalCaseLabel: UILabel!
     @IBOutlet weak var newCaseLabel: UILabel!
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var labelStackView: UIStackView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicatorView.startAnimating() //먼저 인디케이터가 돌아가게 해준다.
+        
         self.fetchCovidOverview { [weak self] result in
             guard let self = self else { return }
+            
+            // 인디케이터 뷰를 없앤다. 그리고 스택뷰랑 파이차트는 다시 보이도록 한다.
+            self.indicatorView.stopAnimating()
+            self.indicatorView.isHidden = true
+            self.labelStackView.isHidden = false
+            self.pieChartView.isHidden = false
+            
             switch result {
             case let .success(result):
                 self.configureStackView(koreaCovidOverview: result.korea)
