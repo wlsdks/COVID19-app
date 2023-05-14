@@ -57,6 +57,7 @@ class ViewController: UIViewController {
     
     // MARK: - piechart에 표시될 내용 추가
     func configureChartView(covidOverviewList: [CovidOverview]) {
+        self.pieChartView.delegate = self
         let entries = covidOverviewList.compactMap{ [weak self] overview -> PieChartDataEntry? in
             guard let self = self else { return nil }
             return PieChartDataEntry(
@@ -123,8 +124,19 @@ class ViewController: UIViewController {
             }
         
     }
+}
+
+// MARK: - 차트전용 delegate 확장 선언
+extension ViewController: ChartViewDelegate {
     
-
-
+    // 차트에서 항목이 선택되었을때 호출되는 메서드다.
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        guard let covidDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "CovidDetailViewController") as? CovidDetailViewController else { return }
+        guard let covidOverview = entry.data as? CovidOverview else { return }
+        
+        covidDetailViewController.covidOverview = covidOverview
+        self.navigationController?.pushViewController(covidDetailViewController, animated: true)
+    }
+    
 }
 
